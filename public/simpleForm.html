@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple form</title>
+</head>
+<body>
+	<form action="/users/" method="post" target="_blank" >
+		<span>FirstName : </span><input type="text" name="fname" id="fname" value="" ><br>
+		<span>LastName : </span><input type="text" name="lname" id="lname" value=""><br>
+		<button type="submit" id="btn">Submit</button>
+	</form>
+	<div id="display">
+		<h1>Display the data here</h1>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript">
+	$('button').on('click',function(event){
+
+		event.preventDefault();
+
+		
+
+		var url = "http://localhost:3000/users/";
+		var getId = this.id;
+		var data = {
+			id: getId,
+			format: "json"
+		};
+		var callback = function(data){
+			var out = "<ul>";
+			$.each(data, function(i, ele))
+			out += "<li>";
+			out += ele.fname + "<br>";
+			out += ele.lname;
+			out += "</li>";
+			out += "</ul>";
+			$('#display').html(out);
+		}
+		$.getJSON(url, data, callback);
+	})
+
+	</script>
+</body>
+</html>
