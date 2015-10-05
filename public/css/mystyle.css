@@ -1,0 +1,19 @@
+body{
+	padding-top: 70px;
+}
+form, .main-body > div{
+	margin-bottom: 20px;
+}
+#search_item{
+	height: 100px;
+	width: auto;
+}
+.priceBtn{
+	display: inline-block;
+	vertical-align: center;
+}
+#itemPanel li{
+	list-style: none;
+	background-color: lightgrey;
+	padding: 20px 10px;
+}

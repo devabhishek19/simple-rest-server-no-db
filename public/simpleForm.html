@@ -2,6 +2,12 @@
 <html>
 <head>
 	<title>Simple form</title>
+	<style type="text/css">
+
+		.userList{
+			background-color: lightgrey;
+		}
+	</style>
 </head>
 <body>
 	<form action="/users/" method="post" target="_blank" >
@@ -16,27 +22,19 @@
 	<script type="text/javascript">
 	$('button').on('click',function(event){
 
-		event.preventDefault();
+		event.preventDefault(); //to prevent the submit default action
 
-		
-
-		var url = "http://localhost:3000/users/";
-		var getId = this.id;
-		var data = {
-			id: getId,
-			format: "json"
-		};
-		var callback = function(data){
-			var out = "<ul>";
-			$.each(data, function(i, ele))
-			out += "<li>";
-			out += ele.fname + "<br>";
-			out += ele.lname;
-			out += "</li>";
-			out += "</ul>";
-			$('#display').html(out);
-		}
-		$.getJSON(url, data, callback);
+		var $display = $('#display');// our display div element
+		$.ajax({
+			type: 'GET',
+			url: "/users",
+			success: function(users){ //if success it returns a data we stored it in users
+				$.each(users, function(i, user){//iterate through the array of data
+					console.log(user.fname +" "+ user.lname);
+					$display.append("<li class='userList'> FirstName : " + user.fname + "<br> LastName : " + user.lname + "</li><br>" );
+				})
+			}
+		})
 	})
 
 	</script>
