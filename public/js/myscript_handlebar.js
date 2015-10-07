@@ -1,23 +1,29 @@
 $(document).ready(function(){
-	var x = {};
+	var template = Handlerbars.compile($('#product-template').innerHTML);
+	var $itemBody = $('#itemBody');
 	function ajaxCall(){
 		$.ajax({
 			type: 'GET',
 			url: '/products',
 			dataType: 'json',
 			success: function(products){
+				$itemBody.innerHTML = template(products);
 				// console.log(products);
-				var output;
-				var $itemBody = $('#itemBody');
-				$.each(products,function(i, product){
-					output += "<tr class='list-item'>";
-					output += "<td><span><h3>"+ product.name + "</h3></span>";
-					output += "<span>" + product.description + "</span></td>";
-					output += "<td><span class='label label-primary'>" + product.price + "</span></td>";
-					output += "<td><span id='" + product.id +"' class='glyphicon glyphicon-remove-sign'></span></td></tr>";
-					return output;
-			});
-				$itemBody.append(output);
+			// 	var output;
+			// 	var $itemBody = $('#itemBody');
+				
+
+
+
+			// 	$.each(products,function(i, product){
+			// 		output += "<tr class='list-item'>";
+			// 		output += "<td><span><h3>"+ product.name + "</h3></span>";
+			// 		output += "<span>" + product.description + "</span></td>";
+			// 		output += "<td><span class='label label-primary'>" + product.price + "</span></td>";
+			// 		output += "<td><span id='" + product.id +"' class='glyphicon glyphicon-remove-sign'></span></td></tr>";
+			// 		return output;
+			// });
+			// 	$itemBody.append(output);
 			}
 		});
 	};//end of ajax call
