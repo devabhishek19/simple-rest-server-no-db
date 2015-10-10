@@ -1,0 +1,39 @@
+body{
+	padding-top: 70px;
+}
+
+form, .main-body > div{
+	margin-bottom: 20px;
+}
+
+#search_item{
+	height: 100px;
+	width: auto;
+}
+table{
+	-moz-position:absolute;
+}
+
+#itemPanel li{
+	list-style: none;
+	background-color: lightgrey;
+	padding: 20px 10px;
+}
+
+#item-header{
+	background-color: grey;
+	padding: 30px 20px;
+}
+
+.list-item{
+	background-color: rgba(211, 211, 211, 0.27);
+	border-bottom: 1px solid black;
+}
+
+.list-item td{
+	padding: 15px 30px 15px 30px;
+}
+
+.glyphicon:hover{
+	cursor: pointer;
+}
