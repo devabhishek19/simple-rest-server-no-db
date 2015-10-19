@@ -1,0 +1,14 @@
+body{
+	padding: 50px;
+}
+div{
+	padding-bottom: 20px;
+}
+ul{
+	list-style: none;
+}
+
+.done{
+	text-decoration: line-through;
+	color: lightgrey;
+}

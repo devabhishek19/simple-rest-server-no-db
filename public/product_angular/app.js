@@ -1,4 +1,4 @@
-var app = angular.module('productApp', ['ui.router'])
+var app = angular.module('productApp', ['ui.router', 'product'])
 .config(['$urlRouterProvider', '$stateProvider'], function($urlRouterProvider, $stateProvider){
 	$urlRouterProvider.otherwise('/');
 
