@@ -16,12 +16,12 @@
 </head>
 <body>
 	<div ng-controller="todocontroller">
-		<form class="form-inline" name="frmtodo" ng-submit="addtodo()">
+		<form class="form-inline" name="frmtodo">
 			<div class="form-group">
 <!-- 				<label for="newtodo">Add a new task - </label>
  -->			<input	type="text" class="form-control" name="newtodo" id="newtodo" 
  					placeholder="Add a new task here!" ng-model="newtodo" required>
-				<button ng-disabled="frmtodo.$invalid" class="btn btn-info">Add</button>
+				<button ng-disabled="frmtodo.$invalid" class="btn btn-info" ng-click="submitdata()">Add</button>
 			</div>
 		</form>
 		<div>
@@ -30,8 +30,8 @@
 		<hr>
 		<div>
 			<ul>
-				<li ng-repeat="todo in todos">
-					<input	type="checkbox" ng-model="todo.done">
+				<li ng-repeat="todo in todos" ng-model="todo.id">
+					<input	type="checkbox" ng-model="todo.done" >
 					<span ng-class="{'done': todo.done}">{{todo.title}}</span>
 				</li>
 			</ul>
