@@ -1,18 +1,22 @@
-var testingApp = angular.module('testingApp', ['ui.router'])
-.config([$urlRouterProvider, $stateProvider, function($urlRouterProvider, $stateProvider){
+angular.module('testingApp', ['ui.router'])
+
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+	$urlRouterProvider.otherwise("/");
+
 	$stateProvider
 		.state('home', {
-			url: '/',
-			templateUrl: 'home.html'
+			url: "/",
+			template: "<h1>Home</h1>"
+			// templateUrl: 'templates/home.html'
 		})
 		.state('home.detail',{
 			url: '/home.detail',
-			templateUrl: '/templates/home_detail.html'
+			templateUrl: 'templates/home_detail.html'
 		})
 		.state('product',{
 			url: '/products',
-			templateUrl: '/products.html'
+			templateUrl: 'templates/products.html'
 		})
 
-	$urlRouterProvider.when('', '/');
+	
 }]);
