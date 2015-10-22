@@ -1,5 +1,7 @@
-var app = angular.module('productApp', ['ui.router', 'product'])
-.config(['$urlRouterProvider', '$stateProvider'], function($urlRouterProvider, $stateProvider){
+var app = angular.module('productApp', ['ui.router', 'productApp.controller','data'])
+
+.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider){
+
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
@@ -11,4 +13,4 @@ var app = angular.module('productApp', ['ui.router', 'product'])
 			url:'/about',
 			templateUrl:'templates/about.html'
 		})
-})
+}]);
